@@ -28,6 +28,10 @@ namespace PensionContManageSystem.Controllers
             _logger = logger;
             _mapper = mapper;
         }
+        /// <summary>
+        /// Get list of member along with their contribution history and employer details
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         //[ResponseCache(Duration = 60)]//This is inline method for Cache
         [ResponseCache(CacheProfileName = "120SecondsDuration")]//Global method
@@ -58,6 +62,11 @@ namespace PensionContManageSystem.Controllers
             //}
         }
 
+        /// <summary>
+        /// Get a member along with his contribution history and employer details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:int}", Name = "GetMemberById")]
         [ResponseCache(CacheProfileName = "120SecondsDuration")]//Global method
@@ -83,6 +92,12 @@ namespace PensionContManageSystem.Controllers
             //    return StatusCode(500, "Internal Server Error. Please Try Again Later");
             //}
         }
+
+        /// <summary>
+        /// Register a new member along with his employer details
+        /// </summary>
+        /// <param name="registerDto"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("RegisterMember")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -134,6 +149,13 @@ namespace PensionContManageSystem.Controllers
             //    return StatusCode(500, "Internal Server Error. Please Try Again Later");
             //}
         }
+
+        /// <summary>
+        /// Update a member record
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updateDetails"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("UpdateMemberDetails")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -168,6 +190,12 @@ namespace PensionContManageSystem.Controllers
             //    return StatusCode(500, "Internal Server Error. Please Try Again Later");
             //}
         }
+
+        /// <summary>
+        /// SoftDelete: change a member status from active to inactive
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("SoftDeleteMember")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

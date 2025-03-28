@@ -7,7 +7,7 @@ namespace PensionContManageSystem.Domain.Entity
     {
         [Key]
         public int Id { get; set; }
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         public DateTime ContributionDate { get; set; }
         public ContributionType Type { get; set; }
         public int MemberId { get; set; }

@@ -24,6 +24,12 @@ namespace PensionContManageSystem.Controllers
             _logger = logger;
             _mapper = mapper;
         }
+        /// <summary>
+        /// Make Contribution Monthly or Voluntarily
+        /// </summary>
+        /// <param name="contributionType"></param>
+        /// <param name="contributionDto"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("ProcessContribution")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -62,6 +68,11 @@ namespace PensionContManageSystem.Controllers
                 return Ok($"{contributionType} contribution was successfully made for member with Id {contributionDto.MemberId}.");
             
         }
+        /// <summary>
+        /// Get member contribution by their Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "GetMemberContributionsById")]
         [ResponseCache(CacheProfileName = "120SecondsDuration")]//Global method
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -79,6 +90,11 @@ namespace PensionContManageSystem.Controllers
                 return Ok(result);
             
         }
+        /// <summary>
+        /// Get member statement of contribution for range of times
+        /// </summary>
+        /// <param name="getMemberStatementRequestDto"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("GetMemberStatement")]
         [ResponseCache(CacheProfileName = "120SecondsDuration")]//Global method

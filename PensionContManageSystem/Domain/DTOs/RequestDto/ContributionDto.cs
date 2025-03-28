@@ -11,7 +11,7 @@ namespace PensionContManageSystem.Domain.DTOs.RequestDto
 
         [Required(ErrorMessage = "{0} is required")]
         [Range(1, double.MaxValue, ErrorMessage = "Amount must be greater than 0.")]
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         
     }
 }
